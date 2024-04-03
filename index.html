@@ -52,17 +52,27 @@
              cursor: pointer;
         }
 
+        @media screen and (max-width: 768) {
+            .container{
+                width: 90%;
+            }
+        }
+
 
     </style>
 </head>
 <body>
-    <h2 class="app-title">Sum of Two Number</h2>
+    <h2 class="app-title">Area of Rectangle</h2>
     <div class="container">
-        <input type="text" placeholder="Enter Number 1" class="number-input" id="num1"/>
-        <input type="text" placeholder="Enter Number 2" class="number-input" id="num2"/>
-        <p class="answer" id="ans">Answer:</p>
+        <input type="text" placeholder="Enter Length" class="number-input" id="num1"/>
+        <input type="text" placeholder="Enter width" class="number-input" id="num2"/>
+        <p class="answer" id="ans"></p>
         <button type="button" class="btn-calculate" onclick="Calculate()">
             Calculate
+        </button>
+
+        <button type="button" class="btn-calculate" onclick="Reset()">
+            Reset
         </button>
 
     </div>
@@ -72,9 +82,27 @@
 
            const input2 = document.getElementById("num2");
 
-           const sum = parseInt (input1.value) + parseInt(input2.value);
+           const ansElement = document.getElementById("ans");
 
-           console.log(sum);
+           const area = parseInt (input1.value) * parseInt(input2.value);
+
+           ansElement.innerHTML = `Area: ${area} mt<sup>2<sup>`;
+        }
+
+        function Reset(){
+
+            const input1 = document.getElementById("num1");
+
+            const input2 = document.getElementById("num2");
+
+            const ansElement = document.getElementById("ans");
+
+            input1.value = "";
+            input2.value = "";
+
+            ansElement.innerText = "";
+
+
         }
     </script>
 </body>
